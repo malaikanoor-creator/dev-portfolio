@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 
 import portfolio  from "../assets/portfolio.png";
-import Weather    from "../assets/Weather.png";
+import Weather    from "../assets/weather.png";
 import signup     from "../assets/signup.png";
 import game       from "../assets/game.png";
 import Netflix    from "../assets/netflix.png";
