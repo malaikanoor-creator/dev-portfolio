@@ -1,13 +1,10 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { Download, Mail } from "lucide-react";
-import instagram from "../assets/instagram.png";
-import youtube from "../assets/youtube.png";
-import linkedin from "../assets/linkedin.png";
-import github from "../assets/github.png";
+import { FaInstagram, FaYoutube, FaLinkedin, FaGithub } from "react-icons/fa";
 import heroImg from "../assets/hero.png";
 import hi from "../assets/hi.png";
-import CV from "../assets/CV.pdf";
+import CV from "../assets/Malaika CV.pdf";
 
 // ── Typewriter Hook ────────────────────────────────────────────────────────────
 const useTypewriter = (words, speed = 100, pause = 1800) => {
@@ -126,12 +123,12 @@ const Hero = ({ darkModeFirst }) => {
   ];
   const typed = useTypewriter(roles, 90, 2000);
 
-  const socialIcons = [
-    { icon: instagram, alt: "Instagram", link: "#" },
-    { icon: youtube,   alt: "Youtube",   link: "#" },
-    { icon: linkedin,  alt: "Linkedin",  link: "#" },
-    { icon: github,    alt: "Github",    link: "#" },
-  ];
+const socialIcons = [
+    { icon: FaInstagram, alt: "Instagram", link: "https://www.instagram.com/code_xdesign?igsh=MXF4dHdtdWttMGgzbg==" },
+    { icon: FaYoutube,   alt: "Youtube",   link: "https://www.youtube.com/" },
+    { icon: FaLinkedin,  alt: "Linkedin",  link: "https://www.linkedin.com/in/malaika-noor-634795407" },
+    { icon: FaGithub,    alt: "Github",    link: "https://github.com/malaikanoor-creator" },
+];
 
   const dark = darkModeFirst;
 
@@ -190,11 +187,7 @@ const Hero = ({ darkModeFirst }) => {
                 whileHover={{ scale: 1.25, rotate: 6 }}
                 whileTap={{ scale: 0.9 }}
               >
-                <img
-                  src={s.icon}
-                  alt={s.alt}
-                  className={`w-8 h-8 sm:w-10 sm:h-10 ${dark ? "" : "brightness-75"}`}
-                />
+                <s.icon size={32} color={dark ? "white" : "#374151"} />
               </motion.a>
             ))}
           </div>

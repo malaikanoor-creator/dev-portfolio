@@ -8,6 +8,9 @@ import bootstrap   from "../assets/bootstrap.png";
 import wordpress   from "../assets/wordpress.png";
 import tailwind    from "../assets/tailwind.png";
 import canva       from "../assets/canva.png";
+import express from "../assets/express-js.png";
+import node from "../assets/nodejs.png";
+import mongodb from "../assets/mongodb.png";
 
 // ── 3D Skill Card ─────────────────────────────────────────────────────────────
 const SkillCard = ({ skill, dark, index }) => {
@@ -191,7 +194,10 @@ const Skills = ({ darkModeFirst }) => {
     { name: "Tailwind CSS",icon: tailwind,   level: 60, gradFrom: "#06b6d4", gradTo: "#14b8a6" },
     { name: "WordPress",   icon: wordpress,  level: 75, gradFrom: "#3b82f6", gradTo: "#6b7280" },
     { name: "Canva",       icon: canva,      level: 92, gradFrom: "#ec4899", gradTo: "#a855f7" },
-  ];
+    { name: "Node.js",    icon: node,       level: 60, gradFrom: "#f97316", gradTo: "#f59e0b" },
+    { name: "Express.js", icon: express,    level: 75, gradFrom: "#06b6d4", gradTo: "#3b82f6" },
+    { name: "MongoDB",    icon: mongodb,    level: 70,  gradFrom: "#a855f7", gradTo: "#6366f1"},
+];
 
   return (
     <section
