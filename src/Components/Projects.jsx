@@ -10,7 +10,6 @@ import Netflix    from "../assets/netflix.png";
 import ecommerce  from "../assets/ecommerce.png";
 import otp        from "../assets/otp.png";
 
-// ── 3D Spotlight Card ─────────────────────────────────────────────────────────
 const ProjectCard = ({ project, dark, index }) => {
   const cardRef = useRef(null);
   const [spotlight, setSpotlight] = useState({ x: 0, y: 0, visible: false });
@@ -22,17 +21,12 @@ const ProjectCard = ({ project, dark, index }) => {
     const x = (e.clientX - left) / width  - 0.5;
     const y = (e.clientY - top)  / height - 0.5;
     el.style.transform = `perspective(800px) rotateY(${x * 16}deg) rotateX(${-y * 16}deg) scale3d(1.03,1.03,1.03)`;
-    setSpotlight({
-      x: e.clientX - left,
-      y: e.clientY - top,
-      visible: true,
-    });
+    setSpotlight({ x: e.clientX - left, y: e.clientY - top, visible: true });
   };
 
   const handleLeave = () => {
     if (cardRef.current)
-      cardRef.current.style.transform =
-        "perspective(800px) rotateY(0) rotateX(0) scale3d(1,1,1)";
+      cardRef.current.style.transform = "perspective(800px) rotateY(0) rotateX(0) scale3d(1,1,1)";
     setSpotlight((s) => ({ ...s, visible: false }));
   };
 
@@ -61,7 +55,6 @@ const ProjectCard = ({ project, dark, index }) => {
           cursor: "default",
         }}
       >
-        {/* Spotlight effect */}
         {spotlight.visible && (
           <div
             style={{
@@ -69,8 +62,7 @@ const ProjectCard = ({ project, dark, index }) => {
               width: 200,
               height: 200,
               borderRadius: "50%",
-              background:
-                "radial-gradient(circle, rgba(249,115,22,0.18) 0%, transparent 70%)",
+              background: "radial-gradient(circle, rgba(249,115,22,0.18) 0%, transparent 70%)",
               left: spotlight.x - 100,
               top: spotlight.y - 100,
               pointerEvents: "none",
@@ -80,56 +72,32 @@ const ProjectCard = ({ project, dark, index }) => {
           />
         )}
 
-        {/* Image */}
         <div style={{ height: 180, overflow: "hidden", position: "relative" }}>
           <img
             src={project.image}
             alt={project.title}
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              transition: "transform 0.5s ease",
-            }}
+            style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.5s ease" }}
             onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.1)")}
             onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
           />
-          {/* Overlay gradient on image */}
           <div
             style={{
               position: "absolute",
               inset: 0,
-              background:
-                "linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 60%)",
+              background: "linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 60%)",
             }}
           />
         </div>
 
-        {/* Content */}
         <div style={{ padding: 20, position: "relative", zIndex: 2 }}>
-          <h3
-            style={{
-              fontWeight: 700,
-              fontSize: "1rem",
-              marginBottom: 6,
-              color: dark ? "white" : "#111827",
-            }}
-          >
+          <h3 style={{ fontWeight: 700, fontSize: "1rem", marginBottom: 6, color: dark ? "white" : "#111827" }}>
             {project.title}
           </h3>
 
-          <p
-            style={{
-              fontSize: "0.85rem",
-              marginBottom: 14,
-              color: dark ? "#9ca3af" : "#6b7280",
-              lineHeight: 1.5,
-            }}
-          >
+          <p style={{ fontSize: "0.85rem", marginBottom: 14, color: dark ? "#9ca3af" : "#6b7280", lineHeight: 1.5 }}>
             {project.desc}
           </p>
 
-          {/* Tags */}
           <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 16 }}>
             {project.tags.map((tag) => (
               <span
@@ -148,84 +116,86 @@ const ProjectCard = ({ project, dark, index }) => {
               </span>
             ))}
           </div>
+{/* Buttons */}
+<div style={{ display: "flex", gap: 8 }}>
+  
+  <a
+    href={project.github}
+    target="_blank"
+    rel="noreferrer"
+    style={{
+      flex: 1,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      gap: 6,
+      padding: "8px 0",
+      borderRadius: 10,
+      fontSize: "0.82rem",
+      fontWeight: 600,
+      textDecoration: "none",
+      background: dark ? "rgba(255,255,255,0.07)" : "#f3f4f6",
+      color: dark ? "white" : "#374151",
+      border: "1px solid",
+      borderColor: dark ? "rgba(255,255,255,0.08)" : "transparent",
+      transition: "background 0.2s",
+    }}
+  >
+    <FaGithub size={13} /> Code
+  </a>
 
-          {/* Buttons */}
-          <div style={{ display: "flex", gap: 8 }}>
-            <a
-              href="#"
-              style={{
-                flex: 1,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: 6,
-                padding: "8px 0",
-                borderRadius: 10,
-                fontSize: "0.82rem",
-                fontWeight: 600,
-                textDecoration: "none",
-                background: dark ? "rgba(255,255,255,0.07)" : "#f3f4f6",
-                color: dark ? "white" : "#374151",
-                border: "1px solid",
-                borderColor: dark ? "rgba(255,255,255,0.08)" : "transparent",
-                transition: "background 0.2s",
-              }}
-            >
-              <FaGithub size={13} /> Code
-            </a>
-            <a
-              href="#"
-              style={{
-                flex: 1,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: 6,
-                padding: "8px 0",
-                borderRadius: 10,
-                fontSize: "0.82rem",
-                fontWeight: 600,
-                textDecoration: "none",
-                background: "linear-gradient(to right, #f97316, #f59e0b)",
-                color: "white",
-              }}
-            >
-              <FaExternalLinkAlt size={11} /> Demo
-            </a>
-          </div>
+  <a
+    href={project.demo}
+    target="_blank"
+    rel="noreferrer"
+    style={{
+      flex: 1,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      gap: 6,
+      padding: "8px 0",
+      borderRadius: 10,
+      fontSize: "0.82rem",
+      fontWeight: 600,
+      textDecoration: "none",
+      background: "linear-gradient(to right, #f97316, #f59e0b)",
+      color: "white",
+    }}
+  >
+    <FaExternalLinkAlt size={11} /> Demo
+  </a>
+
+</div>
         </div>
       </div>
     </motion.div>
   );
 };
 
-// ── Projects ──────────────────────────────────────────────────────────────────
 const Projects = ({ darkModeFirst }) => {
   const dark = darkModeFirst;
 
   const projects = [
-    { id: 1, title: "Animated Portfolio",  desc: "Modern animated portfolio using React & Tailwind.", image: portfolio, tags: ["React","Tailwind","Framer Motion"] },
-    { id: 2, title: "Weather App",         desc: "Weather app using API integration.",                image: Weather,   tags: ["HTML","CSS","JavaScript"] },
-    { id: 3, title: "Netflix Clone",       desc: "Responsive Netflix UI clone.",                      image: Netflix,   tags: ["React","Tailwind"] },
-    { id: 4, title: "Tic Tac Toe",         desc: "Simple JS game.",                                   image: game,      tags: ["HTML","CSS","JS"] },
-    { id: 5, title: "OTP Generator",       desc: "Random OTP generator.",                             image: otp,       tags: ["HTML","CSS","JS"] },
-    { id: 6, title: "Signup Form",         desc: "Responsive form UI.",                               image: signup,    tags: ["HTML","CSS","Bootstrap"] },
-    { id: 7, title: "E-commerce",          desc: "WordPress store.",                                  image: ecommerce, tags: ["WordPress"] },
+    { id: 1, title: "Animated Portfolio", desc: "Modern animated portfolio using React & Tailwind.", image: portfolio, tags: ["React","Tailwind","Framer Motion"], github: "#", demo: "#" },
+    { id: 2, title: "Weather App",        desc: "Weather app using API integration.",               image: Weather,   tags: ["HTML","CSS","JavaScript"],          github: "#", demo: "#" },
+    { id: 3, title: "Netflix Clone",      desc: "Responsive Netflix UI clone.",                     image: Netflix,   tags: ["React","Tailwind"],                  github: "#", demo: "#" },
+    { id: 4, title: "Tic Tac Toe",        desc: "Simple JS game.",                                  image: game,      tags: ["HTML","CSS","JS"],                   github: "https://github.com/malaikanoor-creator/Tic-Tac-Toe-", demo: "https://game-projec.netlify.app/" },
+    { id: 5, title: "OTP Generator",      desc: "Random OTP generator.",                            image: otp,       tags: ["HTML","CSS","JS"],                   github: "#", demo: "#" },
+    { id: 6, title: "Signup Form",        desc: "Responsive form UI.",                              image: signup,    tags: ["HTML","CSS","Bootstrap"],            github: "#", demo: "#" },
+    { id: 7, title: "E-commerce",         desc: "WordPress store.",                                 image: ecommerce, tags: ["WordPress"],                         github: "#", demo: "#" },
   ];
 
   return (
     <section
       id="projects"
       style={{
-        background: dark
-          ? "linear-gradient(to bottom right, #0f172a, #020617)"
-          : "#f8fafc",
+        background: dark ? "linear-gradient(to bottom right, #0f172a, #020617)" : "#f8fafc",
         padding: "80px 0",
         position: "relative",
         overflow: "hidden",
       }}
     >
-      {/* Glow decoration */}
       <div
         style={{
           position: "absolute",
@@ -240,8 +210,6 @@ const Projects = ({ darkModeFirst }) => {
       />
 
       <div className="container mx-auto px-4">
-
-        {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -257,30 +225,16 @@ const Projects = ({ darkModeFirst }) => {
             }}
           >
             My{" "}
-            <span
-              style={{
-                background: "linear-gradient(to right, #f97316, #f59e0b)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }}
-            >
+            <span style={{ background: "linear-gradient(to right, #f97316, #f59e0b)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
               Projects
             </span>
           </h2>
           <p style={{ color: dark ? "#9ca3af" : "#6b7280", maxWidth: 520, margin: "0 auto" }}>
-            A collection of my recent projects demonstrating my skills in web
-            development, UI design, and problem-solving.
+            A collection of my recent projects demonstrating my skills in web development, UI design, and problem-solving.
           </p>
         </motion.div>
 
-        {/* Grid */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
-            gap: 24,
-          }}
-        >
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: 24 }}>
           {projects.map((project, i) => (
             <ProjectCard key={project.id} project={project} dark={dark} index={i} />
           ))}
