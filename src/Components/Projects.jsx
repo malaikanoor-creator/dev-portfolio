@@ -178,7 +178,7 @@ const Projects = ({ darkModeFirst }) => {
 
   const projects = [
     { id: 1, title: "Animated Portfolio", desc: "Modern animated portfolio using React & Tailwind.", image: portfolio, tags: ["React","Tailwind","Framer Motion"], github: "#", demo: "#" },
-    { id: 2, title: "Weather App",        desc: "Weather app using API integration.",               image: Weather,   tags: ["HTML","CSS","JavaScript"],          github: "#", demo: "#" },
+    { id: 2, title: "Weather App", desc: "Weather app using API integration.", image: Weather, tags: ["HTML","CSS","JavaScript"], github: "https://github.com/malaikanoor-creator/Weather-App", demo: "https://storied-bublanina-a47e78.netlify.app/" },
     { id: 3, title: "Netflix Clone",      desc: "Responsive Netflix UI clone.",                     image: Netflix,   tags: ["React","Tailwind"],                  github: "#", demo: "#" },
     { id: 4, title: "Tic Tac Toe",        desc: "Simple JS game.",                                  image: game,      tags: ["HTML","CSS","JS"],                   github: "https://github.com/malaikanoor-creator/Tic-Tac-Toe-", demo: "https://game-projec.netlify.app/" },
     { id: 5, title: "OTP Generator",      desc: "Random OTP generator.",                            image: otp,       tags: ["HTML","CSS","JS"],                   github: "#", demo: "#" },
