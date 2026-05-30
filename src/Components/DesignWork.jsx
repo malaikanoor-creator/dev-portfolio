@@ -4,7 +4,7 @@ import { X, ZoomIn } from "lucide-react";
 import cps from "../assets/cps.png";
 import freelance from "../assets/freelance.png";
 
-// ── Lightbox ──────────────────────────────────────────────────────────────────
+
 const Lightbox = ({ item, onClose }) => (
   <AnimatePresence>
     <motion.div
@@ -117,7 +117,7 @@ const Lightbox = ({ item, onClose }) => (
   </AnimatePresence>
 );
 
-// ── Design Card ───────────────────────────────────────────────────────────────
+
 const DesignCard = ({ item, dark, index, onOpen }) => {
   const cardRef = useRef(null);
   const [hovered, setHovered] = useState(false);
@@ -155,7 +155,7 @@ const DesignCard = ({ item, dark, index, onOpen }) => {
         onMouseMove={handleMove}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={handleLeave}
-        onClick={() => onOpen(item)}
+       onClick={() => window.open(item.behance, "_blank")}
         style={{
           borderRadius: 18,
           overflow: "hidden",
@@ -178,7 +178,7 @@ const DesignCard = ({ item, dark, index, onOpen }) => {
           position: "relative",
         }}
       >
-        {/* Image */}
+       
         <div
           style={{
             height: 220,
@@ -226,13 +226,21 @@ const DesignCard = ({ item, dark, index, onOpen }) => {
                   justifyContent: "center",
                 }}
               >
-                <ZoomIn size={20} color="white" />
+               <span
+  style={{
+    color: "white",
+    fontWeight: 600,
+    fontSize: "0.9rem",
+  }}
+>
+  View Project ↗
+</span>
               </motion.div>
             )}
           </div>
         </div>
 
-        {/* Content */}
+      
         <div style={{ padding: 18 }}>
           <h3
             style={{
@@ -276,27 +284,31 @@ const DesignCard = ({ item, dark, index, onOpen }) => {
   );
 };
 
-// ── Design Work ───────────────────────────────────────────────────────────────
+
 const DesignWork = ({ darkModeFirst }) => {
   const dark = darkModeFirst;
   const [lightboxItem, setLightboxItem] = useState(null);
 
   const designs = [
-    {
-      id: 1,
-      title: "CPS Social Media Posts",
-      desc: "Creative social media posts designed for CPS campaigns.",
-      image: cps,
-      type: "Social Media",
-    },
-    {
-      id: 2,
-      title: "Freelance Client Posts",
-      desc: "Instagram posts designed for freelance clients.",
-      image: freelance,
-      type: "Branding",
-    },
-  ];
+  {
+    id: 1,
+    title: "CPS Social Media Posts",
+    desc: "Social media creatives for brand consistency, promotions, and audience engagement.",
+    image: cps,
+    type: "Social Media",
+    behance:
+      "https://www.behance.net/gallery/250006191/CPS-SOCIAL-MEDIA-BRANDING",
+  },
+  {
+    id: 2,
+    title: "Freelance Client Posts",
+    desc: "Promotional graphics and digital creatives designed for marketing and visual communication.",
+    image: freelance,
+   type: "Promotional Design",
+    behance:
+      "https://www.behance.net/gallery/250006945/Promotional-Creative-Collection",
+  },
+];
 
   return (
     <section
@@ -310,7 +322,7 @@ const DesignWork = ({ darkModeFirst }) => {
         overflow: "hidden",
       }}
     >
-      {/* background glow */}
+
       <div
         style={{
           position: "absolute",
@@ -329,7 +341,7 @@ const DesignWork = ({ darkModeFirst }) => {
         className="container mx-auto px-4 md:px-6"
         style={{ position: "relative" }}
       >
-        {/* Heading */}
+      
         <motion.div
           initial={{ opacity: 0, y: -25 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -355,8 +367,7 @@ const DesignWork = ({ darkModeFirst }) => {
               lineHeight: 1.7,
             }}
           >
-            Visual stories I’ve created — from social media designs to branding
-            that connects with people.
+         Selected branding and social media projects created for businesses, promotional campaigns, and digital content.
           </p>
 
           <p
@@ -370,7 +381,7 @@ const DesignWork = ({ darkModeFirst }) => {
           </p>
         </motion.div>
 
-        {/* Cards */}
+    
         <div
           style={{
             display: "grid",
@@ -393,7 +404,7 @@ const DesignWork = ({ darkModeFirst }) => {
         </div>
       </div>
 
-      {/* Lightbox */}
+      
       {lightboxItem && (
         <Lightbox
           item={lightboxItem}

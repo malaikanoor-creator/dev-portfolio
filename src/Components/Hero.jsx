@@ -297,7 +297,7 @@ const socialIcons = [
               style={{ background: "linear-gradient(to right, #f97316, #f59e0b)" }}
             >
               <Download className="w-4 h-4 mr-2" />
-              Download CV
+              My CV
             </motion.a>
             <motion.a
               href="#contact"

@@ -179,13 +179,14 @@ const Projects = ({ darkModeFirst }) => {
 
   const projects = [
     { id: 1, title: "Animated Portfolio", desc: "Modern animated portfolio using React & Tailwind.", image: portfolio, tags: ["React","Tailwind","Framer Motion"], github: "#", demo: "#" },
+   { id: 6, title: "Signup Form", desc: "Full-stack signup form with MERN stack.", image: signup, tags: ["MongoDB", "Express.js", "React", "Node.js"], github: "your-github-link", demo: "your-demo-link" },
+   { id: 9, title: "Notes Application", desc: "Notes app with Redux.", image: notes, tags: ["React","Redux","Tailwind"], github: "https://github.com/malaikanoor-creator/Notes-Application", demo: "project2345678.netlify.app" },
+   { id: 3, title: "Netflix Clone", desc: "Responsive Netflix UI clone.", image: Netflix, tags: ["React","Tailwind"], github: "https://github.com/malaikanoor-creator/Netflix-Clone", demo: "https://malaikanoor-creator.github.io/Netflix-Clone/" },
     { id: 2, title: "Weather App", desc: "Weather app using API integration.", image: Weather, tags: ["HTML","CSS","JavaScript"], github: "https://github.com/malaikanoor-creator/Weather-App", demo: "https://storied-bublanina-a47e78.netlify.app/" },
-    { id: 3, title: "Netflix Clone", desc: "Responsive Netflix UI clone.", image: Netflix, tags: ["React","Tailwind"], github: "https://github.com/malaikanoor-creator/Netflix-Clone", demo: "https://malaikanoor-creator.github.io/Netflix-Clone/" },
     { id: 4, title: "Tic Tac Toe",        desc: "Simple JS game.",                                  image: game,      tags: ["HTML","CSS","JS"],                   github: "https://github.com/malaikanoor-creator/Tic-Tac-Toe-", demo: "https://game-projec.netlify.app/" },
     { id: 5, title: "OTP Generator", desc: "Random OTP generator.", image: otp, tags: ["HTML","CSS","JS"], github: "https://github.com/malaikanoor-creator/OTP-Generator", demo: "https://stalwart-rabanadas-053cdc.netlify.app/" },
-    { id: 6, title: "Signup Form",        desc: "Responsive form UI.",                              image: signup,    tags: ["HTML","CSS","Bootstrap"],            github: "#", demo: "#" },
     { id: 7, title: "E-commerce",         desc: "WordPress store.",                                 image: ecommerce, tags: ["WordPress"],                         github: "#", demo: "#" },
-    { id: 9, title: "Notes Application", desc: "Notes app with Redux.", image: notes, tags: ["React","Redux","Tailwind"], github: "https://github.com/malaikanoor-creator/Notes-Application", demo: "https://malaikanoor-creator.github.io/Notes-Application/" },
+    
   ];
 
   return (
